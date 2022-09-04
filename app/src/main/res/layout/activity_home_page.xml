@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomePage">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:gravity="center"
+                android:paddingLeft="60dp"
+                android:paddingRight="80dp"
+                android:text="News Bees"
+                android:textColor="@color/dark_blue"
+                android:textSize="25dp"
+                android:drawableStart="@drawable/apitherapy"
+                android:drawablePadding="-30dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:padding="4dp"
+        android:background="@color/white"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicator="@drawable/tabindictor"
+        app:tabIndicatorColor="@color/dark_blue"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabGravity="center"
+        app:tabIndicatorGravity="stretch"
+        app:tabIconTint="@color/black"
+        app:tabTextColor="@color/black">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/home"
+            android:text="Home" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/sport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/sport"
+            android:text="Sport" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/health"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/cardiogram"
+            android:text="health" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/science"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/ic_baseline_science_24"
+            android:text="science" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/enterntainment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/video"
+            android:text="Entertainment" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/technology"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/project"
+            android:text="technology" />
+
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragmentcontainers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name">
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+</LinearLayout>

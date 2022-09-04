@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "88708952874",
+    "project_id": "newsbees-2d7a0",
+    "storage_bucket": "newsbees-2d7a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88708952874:android:34eddeec5816747cae2453",
+        "android_client_info": {
+          "package_name": "com.example.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88708952874-mn5n4784bvbf83gkliep4n55tim5omvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3ji_aCcH3mq5F0bw09B3nA5Pa7zk0Wlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88708952874-mn5n4784bvbf83gkliep4n55tim5omvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
