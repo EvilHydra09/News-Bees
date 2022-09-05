@@ -1,6 +1,7 @@
 package com.example.newsapp;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,19 @@ public class ScienceFragment extends Fragment {
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewofscience.setAdapter(newsAdapter);
         findNews();
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                findNews();
+            }
+        };
+        handler.postDelayed(runnable,1000);
         return v;
     }
 
     private void findNews() {
-        ApiUtilies.getApiInterface().getCateNews(country,category,100,api).enqueue(new Callback<POJO>() {
+        ApiUtilies.getApiInterface().getCateNews(country,category,100,HomePage.api).enqueue(new Callback<POJO>() {
             @Override
             public void onResponse(Call<POJO> call, Response<POJO> response) {
                 if(response.isSuccessful()){

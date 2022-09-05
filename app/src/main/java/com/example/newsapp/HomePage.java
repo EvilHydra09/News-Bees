@@ -1,26 +1,36 @@
 package com.example.newsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.newsapp.databinding.ActivityHomePageBinding;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomePage extends AppCompatActivity {
 Toolbar toolbar;
 PagerAdapter pagerAdapter;
 TabLayout tabLayout;
 TabItem mhome,msport,mhealth,mscience,menterntainment,mtechnology;
-    ViewPager viewPager;
+ViewPager viewPager;
+public static String api;
+DatabaseReference reference;
 
-private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
+
 
 
     @Override
@@ -40,6 +50,25 @@ private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
         // ID of View Pager and Tablayout.
         viewPager = findViewById(R.id.fragmentcontainers);
         tabLayout = findViewById(R.id.include);
+
+        //datareference instance for getting api from realtime database
+        reference = FirebaseDatabase.getInstance("https://newsbees-2d7a0-default-rtdb.asia-southeast1.firebasedatabase.app").getReference();
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                api = snapshot.child("Api").getValue().toString();
+                Log.d("data base connection completed",api);
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomePage.this, "Failed to connect showdata", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
 
         // Object of PagerAdapter it is a custom class
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),6);
