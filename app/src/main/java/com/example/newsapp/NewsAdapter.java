@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.*;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     Context context;
@@ -34,10 +37,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        Articles articles = articlesArrayList.get(position);
+    Articles articles = articlesArrayList.get(position);
+    // logical to time formating
+    String dateInString = articles.getPublishedAt();
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX");
+    try {
+        Date date = formatter.parse(dateInString);
+        formatter = new SimpleDateFormat("dd MMM yyyy");
+        String strDate = formatter.format(date);
+        SimpleDateFormat time = new SimpleDateFormat("h:mm a");
+
+        String strTime = time.format(date);
+        String total = strDate + "\n"+strTime;
+        holder.publish.setText("Published At:- "+total);
+    }catch (ParseException e){
+        return ;
+    }
+
+
+
+
     holder.title.setText(articles.getTitle());
     holder.description.setText(articles.getDescription());
-    holder.publish.setText("Published At:-"+articles.getPublishedAt());
+
+
         Glide.with(context).load(articles.getUrlToImage()).into(holder.image);
 
 
@@ -51,6 +74,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         }
     });
     }
+
+
+
+
+
+
+
 
     @Override
     public int getItemCount() {

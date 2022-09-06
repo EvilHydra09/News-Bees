@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -68,7 +69,7 @@ public class SportFragment extends Fragment {
 
             @Override
             public void onFailure(Call<POJO> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Please Connect to Internet", Toast.LENGTH_SHORT).show();
             }
         });
     }

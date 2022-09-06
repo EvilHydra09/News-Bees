@@ -70,7 +70,7 @@ public class TechnologyFragment extends Fragment {
 
             @Override
             public void onFailure(Call<POJO> call, Throwable t) {
-                Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please Connect to Internet", Toast.LENGTH_SHORT).show();
             }
         });
     }
