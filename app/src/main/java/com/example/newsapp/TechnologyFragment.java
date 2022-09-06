@@ -25,7 +25,6 @@ public class TechnologyFragment extends Fragment {
     ArrayList<Articles> articlesArrayList ;
     private RecyclerView recyclerViewoftech;
     NewsAdapter newsAdapter;
-    private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
     String country = "in";
     private String category = "technology";
     ShimmerFrameLayout shimmerFrameLayout;
@@ -43,7 +42,7 @@ public class TechnologyFragment extends Fragment {
         recyclerViewoftech.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewoftech.setAdapter(newsAdapter);
-        findNew();
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override

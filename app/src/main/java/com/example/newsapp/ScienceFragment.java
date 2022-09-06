@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +25,6 @@ public class ScienceFragment extends Fragment {
     ArrayList<Articles> articlesArrayList ;
     private RecyclerView recyclerViewofscience;
     NewsAdapter newsAdapter;
-    private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
     String country = "in";
     private String category = "science";
     ShimmerFrameLayout shimmerFrameLayout;
@@ -39,7 +39,7 @@ public class ScienceFragment extends Fragment {
         recyclerViewofscience.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewofscience.setAdapter(newsAdapter);
-        findNews();
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
@@ -66,7 +66,7 @@ public class ScienceFragment extends Fragment {
 
             @Override
             public void onFailure(Call<POJO> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Please Connect The Internet", Toast.LENGTH_SHORT).show();
             }
         });
     }

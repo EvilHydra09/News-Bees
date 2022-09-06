@@ -24,7 +24,7 @@ public class HealthFragment extends Fragment {
     ArrayList<Articles> articlesArrayList ;
     private RecyclerView recyclerViewofhealth;
     NewsAdapter newsAdapter;
-    private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
+
     String country = "in";
     private String category = "health";
     ShimmerFrameLayout shimmerFrameLayout ;
@@ -40,7 +40,6 @@ public class HealthFragment extends Fragment {
         recyclerViewofhealth.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewofhealth.setAdapter(newsAdapter);
-        findNews();
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override

@@ -25,7 +25,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
 
-    ArrayList<Articles> articlesArrayList = new ArrayList<>();
+    ArrayList<Articles> articlesArrayList ;
     private RecyclerView recyclerViewofhome;
     NewsAdapter newsAdapter;
 
@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.homefragment,null);
+        articlesArrayList = new ArrayList<>();
         recyclerViewofhome = v.findViewById(R.id.recycleofhome);
 
 
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
         recyclerViewofhome.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewofhome.setAdapter(newsAdapter);
-        findnew();  // this is method is is delay for 1 second.
+
 
         // For Post Delay the Method
         Handler handler = new Handler();
@@ -63,7 +64,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                findnew();
+
                 newsAdapter.notifyDataSetChanged();
                 swipeRefreshLayout.setRefreshing(false);
             }

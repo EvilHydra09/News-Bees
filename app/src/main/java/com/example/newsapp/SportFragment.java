@@ -24,7 +24,7 @@ public class SportFragment extends Fragment {
     ArrayList<Articles> articlesArrayList ;
     private RecyclerView recyclerViewofsport;
     NewsAdapter newsAdapter;
-    private final String api = "d7f31af5cf65419fa1bbe51386f842e9";
+
     String country = "in";
     private String category = "sports";
     ShimmerFrameLayout shimmerFrameLayout;
@@ -41,7 +41,7 @@ public class SportFragment extends Fragment {
         recyclerViewofsport.setLayoutManager(new LinearLayoutManager(getContext()));
         newsAdapter = new NewsAdapter(getContext(),articlesArrayList);
         recyclerViewofsport.setAdapter(newsAdapter);
-        findNews();
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
