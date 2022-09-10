@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android apps/News-Bees/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
+        <entry key="..\:/Android apps/News-Bees/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />
         <entry key="..\:/Android/LoginPage/app/src/main/res/layout/activity_home_page.xml" value="0.2101851851851852" />
         <entry key="..\:/Android/LoginPage/app/src/main/res/layout/activity_register.xml" value="0.2101851851851852" />
         <entry key="..\:/Android/LoginPage/app/src/main/res/layout/loginpage.xml" value="0.2101851851851852" />
