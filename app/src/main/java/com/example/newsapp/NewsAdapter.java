@@ -61,7 +61,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     holder.description.setText(articles.getDescription());
 
 
-        Glide.with(context).load(articles.getUrlToImage()).into(holder.image);
+        Glide.with(context).load(articles.getUrlToImage()).error(R.drawable.fallback).fallback(R.drawable.fallback).into(holder.image);
 
 
 
